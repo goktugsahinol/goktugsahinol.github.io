@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a1420">
+<meta name="color-scheme" content="light">
+<title>Abdullah Göktuğ Şahinol | Elektrik-Elektronik Mühendisi</title>
+<meta name="description" content="Abdullah Göktuğ Şahinol — Otomasyon, PLC programlama ve elektrik pano tasarımı alanlarında saha deneyimine sahip Elektrik-Elektronik Mühendisliği öğrencisinin portfolyosu.">
+<meta property="og:title" content="Abdullah Göktuğ Şahinol | Elektrik-Elektronik Mühendisi">
+<meta property="og:description" content="Otomasyon, PLC programlama ve elektrik pano tasarımı odaklı mühendislik portfolyosu.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="profil.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIyIiBmaWxsPSIjMGExNDIwIi8+PHRleHQgeD0iNTAiIHk9IjY3IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNlMGEwNWEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFHPC90ZXh0Pjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --navy-950:#0a1420;
+  --navy-900:#0f1d30;
+  --navy-800:#17304a;
+  --paper:#f7f5f0;
+  --surface:#ffffff;
+  --ink:#131e28;
+  --ink-soft:#4b5964;
+  --muted:#7a8792;
+  --line:#e5dfd2;
+  --copper:#b3702f;
+  --copper-deep:#8c5620;
+  --copper-bright:#e0a05a;
+  --copper-tint:#f4e5cd;
+  --shadow-sm:0 1px 3px rgba(19,30,40,.08);
+  --shadow-md:0 14px 32px -10px rgba(19,30,40,.18);
+  --shadow-lg:0 26px 60px -16px rgba(10,20,32,.38);
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --font-head:'Space Grotesk',-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Inter',-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --container:1160px;
+}
+
+/* ============================= RESET ============================= */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--surface);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3,h4{margin:0;font-family:var(--font-head);}
+p{margin:0;}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+svg{display:block;}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.5rem;width:100%;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
+}
+a:focus-visible,button:focus-visible,.lang-btn:focus-visible{outline:2px solid var(--copper-bright);outline-offset:3px;border-radius:4px;}
+
+/* ============================= SKIP LINK ============================= */
+.skip-link{position:absolute;left:-999px;top:auto;background:var(--copper);color:#fff;padding:.85rem 1.4rem;border-radius:8px;z-index:300;font-weight:600;}
+.skip-link:focus{left:1rem;top:1rem;}
+
+/* ============================= BUTTONS ============================= */
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.6rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:all .25s ease;border:1px solid transparent;white-space:nowrap;}
+.btn svg{width:16px;height:16px;}
+.btn-primary{background:var(--copper-bright);color:var(--navy-950);}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-ghost{border-color:rgba(255,255,255,.32);color:#fff;}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.55);}
+
+/* ============================= REVEAL ============================= */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ============================= LADDER NETWORK MARKER ============================= */
+.net-marker{display:inline-flex;align-items:center;gap:.8rem;color:var(--copper-deep);margin-bottom:1.1rem;}
+.net-marker svg{width:60px;height:20px;flex-shrink:0;}
+.net-tag{font-family:var(--font-mono);font-size:.76rem;font-weight:600;letter-spacing:.14em;}
+.section-dark .net-marker{color:var(--copper-bright);}
+
+/* ============================= HEADER ============================= */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,18,29,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);}
+.header-inner{max-width:var(--container);margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.logo{display:flex;align-items:center;gap:.6rem;}
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--copper-bright),var(--copper-deep));color:#fff;font-family:var(--font-head);font-weight:700;font-size:.82rem;letter-spacing:.02em;}
+.main-nav ul{display:flex;gap:1.7rem;}
+.nav-link{color:rgba(255,255,255,.76);font-size:.92rem;font-weight:500;padding:.4rem 0;position:relative;transition:color .2s;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.nav-link::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--copper-bright);transition:width .25s;}
+.nav-link:hover::after,.nav-link.active::after{width:100%;}
+.header-actions{display:flex;align-items:center;gap:.9rem;}
+.lang-switch{display:flex;background:rgba(255,255,255,.08);border-radius:999px;padding:3px;gap:2px;}
+.lang-btn{border:none;background:transparent;color:rgba(255,255,255,.62);font-family:var(--font-mono);font-size:.76rem;font-weight:700;letter-spacing:.03em;padding:.42rem .78rem;border-radius:999px;transition:all .2s;}
+.lang-btn.active{background:var(--copper-bright);color:var(--navy-950);}
+.menu-toggle{display:none;width:38px;height:38px;align-items:center;justify-content:center;border-radius:8px;color:#fff;}
+.menu-toggle:hover{background:rgba(255,255,255,.1);}
+.menu-toggle svg{width:20px;height:20px;}
+
+@media (max-width:900px){
+  .main-nav{position:absolute;top:100%;left:0;right:0;background:var(--navy-950);border-bottom:1px solid rgba(255,255,255,.08);max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .main-nav.open{max-height:480px;}
+  .main-nav ul{flex-direction:column;gap:0;padding:.5rem 1.5rem 1rem;}
+  .main-nav li{border-top:1px solid rgba(255,255,255,.07);}
+  .main-nav a{display:block;padding:.9rem 0;}
+  .menu-toggle{display:inline-flex;}
+}
+
+/* ============================= HERO ============================= */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(ellipse 90% 70% at 78% 8%,var(--navy-800),var(--navy-950) 62%);color:#fff;overflow:hidden;padding:7.5rem 1.5rem 4rem;}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(ellipse at 30% 40%,black,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;max-width:var(--container);margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;}
+.hero-greeting{display:block;color:rgba(255,255,255,.7);font-weight:500;font-size:1rem;margin-bottom:.4rem;}
+.hero-name{font-size:clamp(2.15rem,5vw,3.6rem);font-weight:700;line-height:1.08;margin-bottom:.55rem;}
+.hero-role{font-size:clamp(1.1rem,2.3vw,1.45rem);color:var(--copper-bright);font-weight:600;margin-bottom:1.35rem;}
+.hero-tagline{font-size:1.04rem;line-height:1.75;color:rgba(255,255,255,.76);max-width:48ch;margin-bottom:2.1rem;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.1rem;}
+.hero-socials{display:flex;gap:.7rem;}
+.social-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;}
+.social-btn:hover{background:var(--copper-bright);color:var(--navy-950);border-color:var(--copper-bright);transform:translateY(-2px);}
+.social-btn svg{width:18px;height:18px;}
+
+.hero-photo-wrap{position:relative;justify-self:center;}
+.hero-photo-blob{position:absolute;inset:16px -16px -16px 16px;background:linear-gradient(135deg,var(--copper),var(--copper-deep));border-radius:26px;z-index:0;}
+.hero-photo-frame{position:relative;width:min(320px,78vw);aspect-ratio:4/5;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg);border:3px solid rgba(255,255,255,.12);z-index:1;}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;}
+
+.scroll-cue{position:absolute;left:50%;bottom:1.7rem;transform:translateX(-50%);color:rgba(255,255,255,.55);animation:bob 2.2s ease-in-out infinite;}
+.scroll-cue svg{width:22px;height:22px;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-greeting,.hero-tagline{margin-left:auto;margin-right:auto;}
+  .net-marker,.hero-ctas,.hero-socials{justify-content:center;}
+  .hero-photo-wrap{order:-1;margin-bottom:.5rem;}
+}
+
+/* ============================= SECTION SHELL ============================= */
+.section{padding:6rem 1.5rem;background:var(--surface);}
+.section-alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.section-dark{background:var(--navy-950);color:#fff;}
+.section-head{max-width:640px;margin-bottom:3rem;}
+.section-title{font-size:clamp(1.55rem,3.1vw,2.2rem);font-weight:700;color:var(--navy-950);}
+.section-dark .section-title{color:#fff;}
+.section-subtitle{color:var(--ink-soft);font-size:1.01rem;margin-top:.8rem;max-width:560px;line-height:1.7;}
+.section-dark .section-subtitle{color:rgba(255,255,255,.72);}
+
+/* ============================= ABOUT ============================= */
+.about-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:start;}
+.about-text{font-size:1.05rem;line-height:1.85;color:var(--ink-soft);}
+.about-languages{margin-top:1.6rem;}
+.about-languages-title{font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;}
+.lang-pills{display:flex;gap:.6rem;flex-wrap:wrap;}
+.lang-pill{background:var(--copper-tint);color:var(--copper-deep);font-weight:600;font-size:.85rem;padding:.45rem 1rem;border-radius:999px;}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.stat-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:1.3rem 1.4rem;}
+.stat-number{font-family:var(--font-mono);font-size:1.9rem;font-weight:700;color:var(--copper-deep);}
+.stat-label{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
+
+/* ============================= TIMELINE / EXPERIENCE ============================= */
+.timeline-item{position:relative;padding-left:2rem;margin-bottom:1.75rem;}
+.timeline-item:last-child{margin-bottom:0;}
+.timeline-dot{position:absolute;left:0;top:1.55rem;width:12px;height:12px;border-radius:50%;background:var(--copper);box-shadow:0 0 0 4px var(--copper-tint);}
+.timeline-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:1.55rem 1.75rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s;}
+.timeline-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.timeline-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem;margin-bottom:.35rem;}
+.timeline-company{font-family:var(--font-head);font-size:1.12rem;font-weight:700;color:var(--navy-950);}
+.timeline-date{font-family:var(--font-mono);font-size:.8rem;font-weight:600;color:var(--copper-deep);background:var(--copper-tint);padding:.3rem .7rem;border-radius:999px;white-space:nowrap;}
+.timeline-role{font-size:.9rem;color:var(--muted);margin-bottom:.9rem;}
+.timeline-desc{color:var(--ink-soft);line-height:1.75;font-size:.97rem;}
+
+/* ============================= EDUCATION ============================= */
+.edu-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 2.2rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;}
+.edu-icon{width:54px;height:54px;border-radius:15px;background:var(--copper-tint);color:var(--copper-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.edu-icon svg{width:26px;height:26px;}
+.edu-school{font-family:var(--font-head);font-size:1.28rem;font-weight:700;color:var(--navy-950);}
+.edu-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;color:var(--muted);font-family:var(--font-mono);font-size:.85rem;margin:.45rem 0 .9rem;}
+.edu-degree{color:var(--copper-deep);font-weight:600;margin-bottom:.6rem;}
+.edu-desc{color:var(--ink-soft);line-height:1.75;}
+@media (max-width:600px){.edu-card{grid-template-columns:1fr;}}
+
+/* ============================= SKILLS ============================= */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;}
+.skill-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:1.4rem 1.5rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s;}
+.skill-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.skill-card-head{display:flex;align-items:center;gap:.65rem;margin-bottom:1rem;}
+.skill-icon{width:34px;height:34px;border-radius:10px;background:var(--copper-tint);color:var(--copper-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.skill-icon svg{width:17px;height:17px;}
+.skill-card-title{font-family:var(--font-head);font-weight:700;font-size:.98rem;color:var(--navy-950);}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+.skill-tag{background:var(--paper);border:1px solid var(--line);font-size:.81rem;color:var(--ink-soft);padding:.35rem .75rem;border-radius:999px;}
+
+/* ============================= PROJECTS ============================= */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;}
+.project-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column;gap:.85rem;}
+.project-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.project-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--copper-bright),var(--copper-deep));color:#fff;display:flex;align-items:center;justify-content:center;}
+.project-icon svg{width:21px;height:21px;}
+.project-badge{align-self:flex-start;font-size:.76rem;font-weight:600;color:var(--copper-deep);background:var(--copper-tint);padding:.3rem .7rem;border-radius:999px;}
+.project-title{font-family:var(--font-head);font-size:1.12rem;font-weight:700;color:var(--navy-950);line-height:1.35;}
+.project-desc{color:var(--ink-soft);line-height:1.7;font-size:.95rem;}
+
+/* ============================= COURSES ============================= */
+.courses-list{border-top:1px solid var(--line);}
+.course-item{display:flex;align-items:center;gap:1.2rem;padding:1.05rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.course-dot{width:9px;height:9px;border-radius:50%;background:var(--copper);flex-shrink:0;}
+.course-org{font-weight:700;color:var(--navy-950);min-width:180px;font-size:.94rem;}
+.course-title{color:var(--ink-soft);flex:1;font-size:.94rem;min-width:200px;}
+.course-date{color:var(--muted);font-family:var(--font-mono);font-size:.82rem;white-space:nowrap;}
+@media (max-width:560px){.course-org{min-width:100%;order:1;}.course-dot{order:0;}.course-title{order:2;}.course-date{order:3;margin-left:1.5rem;}}
+
+/* ============================= CONTACT ============================= */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.contact-cards{display:grid;gap:.8rem;}
+.contact-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius-md);padding:1rem 1.2rem;transition:all .2s;}
+.contact-card:hover{background:rgba(255,255,255,.12);transform:translateX(4px);}
+.contact-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.1);color:var(--copper-bright);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon svg{width:19px;height:19px;}
+.contact-label{font-size:.75rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;}
+.contact-value{color:#fff;font-weight:600;font-size:.95rem;word-break:break-word;}
+@media (max-width:900px){.contact-inner{grid-template-columns:1fr;}}
+
+/* ============================= FOOTER ============================= */
+.site-footer{background:var(--navy-950);color:rgba(255,255,255,.6);padding:1.8rem 1.5rem;border-top:1px solid rgba(255,255,255,.08);}
+.footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.85rem;}
+.footer-socials{display:flex;align-items:center;gap:.75rem;}
+.back-to-top{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;}
+.back-to-top:hover{background:var(--copper-bright);border-color:var(--copper-bright);color:var(--navy-950);}
+.back-to-top svg{width:16px;height:16px;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">İçeriğe geç</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Abdullah Göktuğ Şahinol">
+      <span class="logo-mark">AGŞ</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about"></a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav.experience"></a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav.education"></a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav.skills"></a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects"></a></li>
+        <li><a href="#courses" class="nav-link" data-i18n="nav.courses"></a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact"></a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="tr">TR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span class="icon-menu"></span>
+        <span class="icon-close" hidden></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <div class="net-marker" id="heroNet">
+          <svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="net-tag" data-i18n="hero.network"></span>
+        </div>
+        <span class="hero-greeting" data-i18n="hero.greeting"></span>
+        <h1 class="hero-name">Abdullah Göktuğ Şahinol</h1>
+        <div class="hero-role" data-i18n="hero.role"></div>
+        <p class="hero-tagline" data-i18n="hero.tagline"></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.ctaPrimary"></a>
+          <a href="#experience" class="btn btn-ghost" data-i18n="hero.ctaSecondary"></a>
+        </div>
+        <div class="hero-socials">
+          <a class="social-btn" href="mailto:sahinolgoktug4508@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+          <a class="social-btn" href="https://www.linkedin.com/in/goktug-sahinol" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7.8" y1="10.5" x2="7.8" y2="16.5"/><circle cx="7.8" cy="7.3" r=".4" fill="currentColor" stroke="none"/><path d="M11.8 16.5v-3.2a2.1 2.1 0 0 1 4.2 0v3.2"/><line x1="11.8" y1="10.5" x2="11.8" y2="16.5"/></svg></a>
+          <a class="social-btn" href="https://github.com/goktugsahinol" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-blob"></div>
+        <div class="hero-photo-frame">
+          <img id="heroPhoto" src="profil.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="about.network"></span></div>
+        <h2 class="section-title" data-i18n="about.title"></h2>
+      </div>
+      <div class="about-grid reveal">
+        <div>
+          <p class="about-text" data-i18n="about.text"></p>
+          <div class="about-languages">
+            <div class="about-languages-title" data-i18n="about.languagesTitle"></div>
+            <div class="lang-pills" id="aboutLanguages"></div>
+          </div>
+        </div>
+        <div class="stats-grid" id="aboutStats"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section section-alt" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="experience.network"></span></div>
+        <h2 class="section-title" data-i18n="experience.title"></h2>
+        <p class="section-subtitle" data-i18n="experience.subtitle"></p>
+      </div>
+      <div id="experienceList" class="reveal"></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="education.network"></span></div>
+        <h2 class="section-title" data-i18n="education.title"></h2>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5z"/><path d="M6 11.7v4.3c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.3"/><path d="M22 9.5V16"/></svg></div>
+        <div>
+          <div class="edu-school" data-i18n="education.school"></div>
+          <div class="edu-meta"><span>2021 — 2026</span><span>Manisa</span></div>
+          <div class="edu-degree" data-i18n="education.degree"></div>
+          <p class="edu-desc" data-i18n="education.desc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="skills.network"></span></div>
+        <h2 class="section-title" data-i18n="skills.title"></h2>
+        <p class="section-subtitle" data-i18n="skills.subtitle"></p>
+      </div>
+      <div class="skills-grid reveal" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="projects.network"></span></div>
+        <h2 class="section-title" data-i18n="projects.title"></h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle"></p>
+      </div>
+      <div class="projects-grid reveal" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section class="section section-alt" id="courses">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="courses.network"></span></div>
+        <h2 class="section-title" data-i18n="courses.title"></h2>
+        <p class="section-subtitle" data-i18n="courses.subtitle"></p>
+      </div>
+      <div class="courses-list reveal" id="coursesList"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="contact.network"></span></div>
+        <h2 class="section-title" data-i18n="contact.title"></h2>
+        <p class="section-subtitle" data-i18n="contact.subtitle"></p>
+      </div>
+      <div class="contact-inner reveal">
+        <div></div>
+        <div class="contact-cards">
+          <a class="contact-card" href="mailto:sahinolgoktug4508@gmail.com">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <span><span class="contact-label" data-i18n="contact.emailLabel"></span><br><span class="contact-value">sahinolgoktug4508@gmail.com</span></span>
+          </a>
+          <a class="contact-card" href="tel:+905531521399">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4.5-2 1.5a11.5 11.5 0 0 0 5 5l1.5-2L19 14.5V18a2 2 0 0 1-2 2A14 14 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span><span class="contact-label" data-i18n="contact.phoneLabel"></span><br><span class="contact-value">+90 553 152 13 99</span></span>
+          </a>
+          <div class="contact-card">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+            <span><span class="contact-label" data-i18n="contact.locationLabel"></span><br><span class="contact-value" data-i18n="contact.locationValue"></span></span>
+          </div>
+          <a class="contact-card" href="https://www.linkedin.com/in/goktug-sahinol" target="_blank" rel="noopener">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><line x1="7.8" y1="10.5" x2="7.8" y2="16.5"/><circle cx="7.8" cy="7.3" r=".4" fill="currentColor" stroke="none"/><path d="M11.8 16.5v-3.2a2.1 2.1 0 0 1 4.2 0v3.2"/><line x1="11.8" y1="10.5" x2="11.8" y2="16.5"/></svg></span>
+            <span><span class="contact-label">LinkedIn</span><br><span class="contact-value">linkedin.com/in/goktug-sahinol</span></span>
+          </a>
+          <a class="contact-card" href="https://github.com/goktugsahinol" target="_blank" rel="noopener">
+            <span class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></span>
+            <span><span class="contact-label">GitHub</span><br><span class="contact-value">github.com/goktugsahinol</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="footerYear"></span> Abdullah Göktuğ Şahinol · <span data-i18n="footer.rights"></span></span>
+    <div class="footer-socials">
+      <a href="#home" class="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================= ICONS ============================= */
+var ICONS = {
+  menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>',
+  briefcase: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg>',
+  rocket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c3 2 5 6 5 10 0 2-1 4-2 5l-3 3-3-3c-1-1-2-3-2-5 0-4 2-8 5-10z"/><circle cx="12" cy="10.5" r="1.75"/><path d="M8.3 15.3l-2.8 2 1-3.3"/><path d="M15.7 15.3l2.8 2-1-3.3"/></svg>',
+  cpu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx=".5"/><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/></svg>',
+  grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+  wrench: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18l3 3 6.1-6.1a4 4 0 0 0 5.6-5.6l-2.6 2.6-2.3-2.3 2.6-2.6z"/></svg>',
+  circuit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h4M18 8v3M6 8v3M8 18h3"/><rect x="10" y="9.5" width="4" height="4" rx=".5"/></svg>',
+  code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 8 4 12 9 16"/><polyline points="15 8 20 12 15 16"/></svg>',
+  monitor: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="6 13 10 9 13 11.5 17.5 7"/></svg>',
+  database: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.2c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8V5.5"/><path d="M4.5 11.7v6.2c0 1.55 3.36 2.8 7.5 2.8s7.5-1.25 7.5-2.8v-6.2"/></svg>',
+  shieldCheck: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.6 3 7.8 7 9 4-1.2 7-4.4 7-9V6l-7-3z"/><polyline points="9 12 11 14 15.5 9.5"/></svg>'
+};
+
+/* ============================= CONTENT ============================= */
+var content = {
+tr: {
+  a11y: { skip:"İçeriğe geç" },
+  meta: { title:"Abdullah Göktuğ Şahinol | Elektrik-Elektronik Mühendisi", description:"Otomasyon sistemleri, PLC programlama ve elektrik pano tasarımı alanlarında saha deneyimine sahip Elektrik-Elektronik Mühendisliği öğrencisinin portfolyosu." },
+  nav: { about:"Hakkımda", experience:"Deneyim", education:"Eğitim", skills:"Beceriler", projects:"Projeler", courses:"Kurslar", contact:"İletişim" },
+  hero: {
+    network:"AĞ 01", greeting:"Merhaba, ben", role:"Elektrik-Elektronik Mühendisi",
+    tagline:"Otomasyon sistemleri ve elektrik bakım-onarımında saha deneyimine sahip; PLC programlama, pano tasarımı ve endüstriyel otomasyon çözümlerine odaklanan bir mühendislik öğrencisiyim.",
+    ctaPrimary:"İletişime Geç", ctaSecondary:"Deneyimimi Gör",
+    photoAlt:"Abdullah Göktuğ Şahinol'un profil fotoğrafı"
+  },
+  about: {
+    network:"AĞ 02", title:"Hakkımda",
+    text:"Otomasyon sistemleri, elektrik bakım-onarım alanlarında saha deneyimine sahibim. Schneider Electric, Sarten Ambalaj ve Sanayi Bakanlığı bünyesindeki uzun dönemli çalışmalarımda; Siemens TIA Portal ile PLC programlama, EPLAN ile pano tasarımı, arıza tespiti ve SAP süreçlerinde aktif rol aldım.",
+    stats:[ {number:"3",label:"Staj"}, {number:"3",label:"Proje"}, {number:"5",label:"Kurs"}, {number:"2026",label:"Mezuniyet"} ],
+    languagesTitle:"Diller", languages:["Türkçe","İngilizce"]
+  },
+  experience: {
+    network:"AĞ 03", title:"İş Deneyimi", subtitle:"Sahada edindiğim profesyonel deneyimler.",
+    items:[
+      { company:"Schneider Electric", role:"Elektrik - Elektronik Mühendisliği Stajyeri", date:"Eki 2025 – Haz 2026", location:"Manisa",
+        desc:"Orta Gerilim (OG) pano tasarım süreçlerinde aktif görev alarak EPLAN üzerinden kapsamlı şematik analizler gerçekleştirdim. Tasarım ekibine röle ve trafo seçim süreçlerinde teknik değerlendirmelerle destek sağlarken, SAP ERP sistemi üzerinden BOM (Malzeme Listesi) yönetimini üstlendim ve yurt dışı proje dokümantasyonu (AO/PO) süreçlerini başarıyla koordine ettim. Kritik tedarik zinciri krizlerinin uçtan uca yönetilmesinde sorumluluk aldım." },
+      { company:"T.C. Sanayi ve Teknoloji Bakanlığı", role:"Elektrik - Elektronik Mühendisliği Stajyeri", date:"Ağu 2025 – Eyl 2025", location:"Manisa",
+        desc:"7223 sayılı Ürün Güvenliği ve Teknik Düzenlemeler Kanunu kapsamında yürütülen kalite denetim süreçlerine stratejik katkı sağladım. Görevim süresince EMC testleri, gerilim sınırları ve endüstriyel enerji verimliliği yönetmelikleriyle ilgili teknik raporları detaylı olarak inceledim. Mevzuat gereklilikleri ve güncel test yöntemleri üzerine kapsamlı araştırmalar yürüterek endüstriyel standartlar ile kalite yönetim sistemleri konusunda derinlemesine deneyim kazandım." },
+      { company:"Sarten Ambalaj A.Ş.", role:"Elektrik - Elektronik Mühendisliği Stajyeri", date:"Tem 2023 – Ağu 2025", location:"Manisa",
+        desc:"Yeni fabrika kurulumu projesi kapsamında otomasyon sistemlerinin montajı, elektrik bağlantıları ve PLC programlama çalışmalarında aktif olarak saha görevleri üstlendim. Bakım-onarım ve Ar-Ge birimlerinde sistem verimliliğini artırmaya yönelik analizler gerçekleştirip teknik arızaların giderilmesini sağlarken; Siemens TIA Portal kullanarak arıza tespiti, pano montajı ile sensör ve motor devreye alma süreçlerinde güçlü bir saha deneyimi elde ettim. Üç ayrı yaz dönemi boyunca kesintisiz katkı sunarak operasyonel sürekliliğin korunmasında ve karmaşık teknik problemlerin çözülmesinde yetkinliğimi geliştirdim." }
+    ]
+  },
+  education: {
+    network:"AĞ 04", title:"Eğitim", school:"Manisa Celal Bayar Üniversitesi", degree:"Elektrik - Elektronik Mühendisliği",
+    desc:"Ağırlıklı olarak otomasyon ve kumanda sistemleri, gömülü programlama, PCB tasarımı ve güç elektroniği alanlarında eğitimler aldım. Proje çalışmaları ve stajlarla teorik bilgimi uygulamalı deneyimle pekiştirdim."
+  },
+  skills: {
+    network:"AĞ 05", title:"Beceriler", subtitle:"Sahada ve projelerde kullandığım araçlar, yazılımlar ve teknolojiler.",
+    categories:[
+      { icon:"cpu", title:"Otomasyon & PLC Programlama", items:["Siemens TIA Portal","Siemens LOGO","Elektrik Kumanda ve Otomasyon Sistemleri"] },
+      { icon:"grid", title:"Elektrik Pano Tasarımı", items:["EPLAN","OG/AG Şematik Analiz","Röle/Trafo Seçimi"] },
+      { icon:"wrench", title:"Bakım-Onarım ve Saha Deneyimi", items:["Arıza Tespiti","Sensör/Motor Devreye Alma","Pano Montajı"] },
+      { icon:"circuit", title:"Elektronik Tasarım", items:["Proteus","Altium Designer","EasyEDA","PSpice","PCB Tasarımı","Lehimleme Teknikleri"] },
+      { icon:"code", title:"Mikrodenetleyici Programlama", items:["Arduino","STM32","C","CCS C"] },
+      { icon:"monitor", title:"Yazılım & Simülasyon", items:["Python","MATLAB","Simulink","AutoCAD","SolidWorks"] },
+      { icon:"database", title:"Kurumsal Sistemler", items:["SAP ERP","BOM (Malzeme Listesi) Yönetimi","Kalite Yönetim Sistemleri"] },
+      { icon:"shieldCheck", title:"Ar-Ge ve Regülasyon", items:["Ürün Güvenliği (7223 Sayılı Kanun)","EMC Testleri","Enerji Verimliliği"] }
+    ]
+  },
+  projects: {
+    network:"AĞ 06", title:"Projeler", subtitle:"Yarışma ve araştırma kapsamında yürüttüğüm projeler.",
+    items:[
+      { badge:"Yarışma Projesi", title:"Teknofest Çevre ve Enerji Teknolojileri", desc:"Çevre ve enerji teknolojileri yarışma kategorisinde, Baz İstasyonlarında sürdürülebilirlik ve kesintisiz iletişim odaklı akıllı güç yönetim sistemi geliştirdim ve bu alanda yenilikçi çözümler üretmeye yönelik çalışmalar yaptım." },
+      { badge:"TÜBİTAK Projesi", title:"Tübitak 2209 - A", desc:"Çevre güvenliği ve sürdürülebilir enerji alanında yürüttüğüm bu proje kapsamında literatür taraması yaptım, teknik raporlar hazırladım ve Tübitak'a projemi gönderdim." },
+      { badge:"TÜBİTAK Projesi", title:"Tübitak 2209 - B", desc:"GES sistemleri için gerçek zamanlı enerji satış planlaması için yapay zekâ tabanlı optimizasyon modelinin geliştirilmesi projesinin araştırmasını ve literatür taraması yaptım, teknik raporlar hazırladım ve Tübitak'a projemi gönderdim." }
+    ]
+  },
+  courses: {
+    network:"AĞ 07", title:"Kurslar", subtitle:"Teknik yetkinliklerimi geliştirmek için tamamladığım eğitimler.",
+    items:[
+      { org:"Elginkan Vakfı", title:"Akıllı Röle ve Mikro Seviye PLC", date:"May 2023" },
+      { org:"BTK Akademi", title:"C Programlama Dili", date:"Oca 2025" },
+      { org:"Elginkan Vakfı", title:"Bilgisayar Destekli 3D Tasarım: Solidworks", date:"Şub 2025" },
+      { org:"Udemy", title:"MATLAB", date:"May 2025" },
+      { org:"Udemy", title:"EPLAN P8 Elektrik", date:"May 2026" }
+    ]
+  },
+  contact: {
+    network:"AĞ 08", title:"İletişim",
+    subtitle:"Otomasyon, PLC programlama veya elektrik pano tasarımı konularında birlikte çalışmak ya da sadece merhaba demek isterseniz, aşağıdaki kanallardan bana ulaşabilirsiniz.",
+    emailLabel:"E-posta", phoneLabel:"Telefon", locationLabel:"Konum", locationValue:"Manisa, Türkiye"
+  },
+  footer: { rights:"Tüm hakları saklıdır." }
+},
+en: {
+  a11y: { skip:"Skip to content" },
+  meta: { title:"Abdullah Göktuğ Şahinol | Electrical-Electronics Engineer", description:"Portfolio of an Electrical-Electronics Engineering student with hands-on field experience in automation systems, PLC programming, and electrical panel design." },
+  nav: { about:"About", experience:"Experience", education:"Education", skills:"Skills", projects:"Projects", courses:"Courses", contact:"Contact" },
+  hero: {
+    network:"NETWORK 01", greeting:"Hi, I'm", role:"Electrical-Electronics Engineer",
+    tagline:"An engineering student with hands-on field experience in automation systems and electrical maintenance, focused on PLC programming, panel design, and industrial automation solutions.",
+    ctaPrimary:"Get in Touch", ctaSecondary:"See My Experience",
+    photoAlt:"Profile photo of Abdullah Göktuğ Şahinol"
+  },
+  about: {
+    network:"NETWORK 02", title:"About Me",
+    text:"I have field experience in automation systems and electrical maintenance-repair. During my long-term roles at Schneider Electric, Sarten Ambalaj, and the Ministry of Industry and Technology, I took an active role in PLC programming with Siemens TIA Portal, panel design with EPLAN, troubleshooting, and SAP processes.",
+    stats:[ {number:"3",label:"Internships"}, {number:"3",label:"Projects"}, {number:"5",label:"Courses"}, {number:"2026",label:"Graduation"} ],
+    languagesTitle:"Languages", languages:["Turkish","English"]
+  },
+  experience: {
+    network:"NETWORK 03", title:"Work Experience", subtitle:"Professional experience I've gained in the field.",
+    items:[
+      { company:"Schneider Electric", role:"Electrical-Electronics Engineering Intern", date:"Oct 2025 – Jun 2026", location:"Manisa",
+        desc:"Taking an active role in panel design processes, I performed comprehensive schematic analyses via EPLAN. While supporting the design team with technical evaluations in relay and transformer selection processes, I undertook BOM (Bill of Materials) management through the SAP ERP system and successfully coordinated international project documentation (AO/PO) processes. I took responsibility for the end-to-end management of critical supply chain crises." },
+      { company:"Republic of Turkey Ministry of Industry and Technology", role:"Electrical-Electronics Engineering Intern", date:"Aug 2025 – Sep 2025", location:"Manisa",
+        desc:"I made strategic contributions to quality inspection processes conducted under the Product Safety and Technical Regulations Law No. 7223. Throughout my tenure, I reviewed detailed technical reports regarding EMC tests, voltage limits, and industrial energy efficiency regulations. By conducting comprehensive research on regulatory requirements and up-to-date testing methodologies, I gained in-depth experience in industrial standards and quality management systems." },
+      { company:"Sarten Ambalaj A.Ş.", role:"Electrical-Electronics Engineering Intern", date:"Jul 2023 – Aug 2025", location:"Manisa",
+        desc:"As part of a new factory installation project, I took on active field duties in the installation, electrical connections, and PLC programming of automation systems. While performing analyses in maintenance-repair and R&D departments to increase system efficiency and ensuring the resolution of technical faults, I gained strong field experience in troubleshooting, panel assembly, and sensor/motor commissioning using Siemens TIA Portal. By providing continuous contributions across three separate summer periods, I developed my competence in maintaining operational continuity and solving complex technical problems." }
+    ]
+  },
+  education: {
+    network:"NETWORK 04", title:"Education", school:"Manisa Celal Bayar University", degree:"Electrical - Electronics Engineering",
+    desc:"I have mainly received training in automation and control systems, embedded programming, PCB design, and power electronics. Through project work and internships, I have reinforced my theoretical knowledge with practical experience."
+  },
+  skills: {
+    network:"NETWORK 05", title:"Skills", subtitle:"Tools, software, and technologies I use in the field and in my projects.",
+    categories:[
+      { icon:"cpu", title:"Automation & PLC Programming", items:["Siemens TIA Portal","Siemens LOGO","Electrical Control and Automation Systems"] },
+      { icon:"grid", title:"Electrical Panel Design", items:["EPLAN","MV/LV Schematic Analysis","Relay/Transformer Selection"] },
+      { icon:"wrench", title:"Maintenance-Repair & Field Experience", items:["Troubleshooting","Sensor/Motor Commissioning","Panel Assembly"] },
+      { icon:"circuit", title:"Electronic Design", items:["Proteus","Altium Designer","EasyEDA","PSpice","PCB Design","Soldering Techniques"] },
+      { icon:"code", title:"Microcontroller Programming", items:["Arduino","STM32","C","CCS C"] },
+      { icon:"monitor", title:"Software & Simulation", items:["Python","MATLAB","Simulink","AutoCAD","SolidWorks"] },
+      { icon:"database", title:"Enterprise Systems", items:["SAP ERP","BOM (Bill of Materials) Management","Quality Management Systems"] },
+      { icon:"shieldCheck", title:"R&D and Regulation", items:["Product Safety (Law No. 7223)","EMC Testing","Energy Efficiency"] }
+    ]
+  },
+  projects: {
+    network:"NETWORK 06", title:"Projects", subtitle:"Projects I've carried out through competitions and research.",
+    items:[
+      { badge:"Competition Project", title:"Teknofest Environment and Energy Technologies", desc:"In the environment and energy technologies competition category, I developed a smart power management system focused on sustainability and uninterrupted communication in Base Transceiver Stations (BTS) and conducted studies to produce innovative solutions in this field." },
+      { badge:"TÜBİTAK Project", title:"Tübitak 2209 - A", desc:"As part of this project conducted in the field of environmental safety and sustainable energy, I conducted literature reviews, prepared technical reports, and submitted my project to TÜBİTAK." },
+      { badge:"TÜBİTAK Project", title:"Tübitak 2209 - B", desc:"As part of the project for developing an AI-based optimization model for real-time energy sales planning in solar power plants (SPP), I conducted research and literature reviews, prepared technical reports, and submitted my project to TÜBİTAK." }
+    ]
+  },
+  courses: {
+    network:"NETWORK 07", title:"Courses", subtitle:"Training programs I've completed to strengthen my technical skills.",
+    items:[
+      { org:"Elginkan Foundation", title:"Smart Relay and Micro Level PLC", date:"May 2023" },
+      { org:"BTK Academy", title:"C Programming Language", date:"Jan 2025" },
+      { org:"Elginkan Foundation", title:"Computer Aided 3D Design: Solidworks", date:"Feb 2025" },
+      { org:"Udemy", title:"MATLAB", date:"May 2025" },
+      { org:"Udemy", title:"EPLAN P8 Electric", date:"May 2026" }
+    ]
+  },
+  contact: {
+    network:"NETWORK 08", title:"Contact",
+    subtitle:"Whether you'd like to collaborate on automation, PLC programming, or electrical panel design, or simply say hello, feel free to reach out through any of the channels below.",
+    emailLabel:"Email", phoneLabel:"Phone", locationLabel:"Location", locationValue:"Manisa, Turkey"
+  },
+  footer: { rights:"All rights reserved." }
+}
+};
+
+/* ============================= STATE ============================= */
+var currentLang = "tr";
+
+function t(path){
+  var parts = path.split(".");
+  var obj = content[currentLang];
+  for (var i=0;i<parts.length;i++){
+    if (obj == null) return undefined;
+    obj = obj[parts[i]];
+  }
+  return obj;
+}
+
+/* ============================= RENDER ============================= */
+function renderStatic(){
+  var c = content[currentLang];
+  document.documentElement.lang = currentLang;
+  document.title = c.meta.title;
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute("content", c.meta.description);
+
+  var nodes = document.querySelectorAll("[data-i18n]");
+  for (var i=0;i<nodes.length;i++){
+    var key = nodes[i].getAttribute("data-i18n");
+    var val = t(key);
+    if (val !== undefined) nodes[i].textContent = val;
+  }
+
+  var photo = document.getElementById("heroPhoto");
+  if (photo) photo.alt = c.hero.photoAlt;
+}
+
+function renderAboutExtras(){
+  var c = content[currentLang].about;
+  var statsEl = document.getElementById("aboutStats");
+  var statsHtml = "";
+  for (var i=0;i<c.stats.length;i++){
+    statsHtml += '<div class="stat-card"><div class="stat-number">'+c.stats[i].number+'</div><div class="stat-label">'+c.stats[i].label+'</div></div>';
+  }
+  statsEl.innerHTML = statsHtml;
+
+  var langEl = document.getElementById("aboutLanguages");
+  var langHtml = "";
+  for (var j=0;j<c.languages.length;j++){
+    langHtml += '<span class="lang-pill">'+c.languages[j]+'</span>';
+  }
+  langEl.innerHTML = langHtml;
+}
+
+function renderExperience(){
+  var items = content[currentLang].experience.items;
+  var html = "";
+  for (var i=0;i<items.length;i++){
+    var it = items[i];
+    html += '<div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card">'
+      + '<div class="timeline-top"><h3 class="timeline-company">'+it.company+'</h3><span class="timeline-date">'+it.date+'</span></div>'
+      + '<div class="timeline-role">'+it.role+' · '+it.location+'</div>'
+      + '<p class="timeline-desc">'+it.desc+'</p>'
+      + '</div></div>';
+  }
+  document.getElementById("experienceList").innerHTML = html;
+}
+
+function renderSkills(){
+  var cats = content[currentLang].skills.categories;
+  var html = "";
+  for (var i=0;i<cats.length;i++){
+    var cat = cats[i];
+    var tags = "";
+    for (var j=0;j<cat.items.length;j++){ tags += '<span class="skill-tag">'+cat.items[j]+'</span>'; }
+    html += '<div class="skill-card"><div class="skill-card-head"><span class="skill-icon">'+(ICONS[cat.icon]||"")+'</span><h3 class="skill-card-title">'+cat.title+'</h3></div><div class="skill-tags">'+tags+'</div></div>';
+  }
+  document.getElementById("skillsGrid").innerHTML = html;
+}
+
+function renderProjects(){
+  var items = content[currentLang].projects.items;
+  var html = "";
+  for (var i=0;i<items.length;i++){
+    var p = items[i];
+    html += '<div class="project-card"><span class="project-icon">'+ICONS.rocket+'</span><span class="project-badge">'+p.badge+'</span><h3 class="project-title">'+p.title+'</h3><p class="project-desc">'+p.desc+'</p></div>';
+  }
+  document.getElementById("projectsGrid").innerHTML = html;
+}
+
+function renderCourses(){
+  var items = content[currentLang].courses.items;
+  var html = "";
+  for (var i=0;i<items.length;i++){
+    var c = items[i];
+    html += '<div class="course-item"><span class="course-dot"></span><span class="course-org">'+c.org+'</span><span class="course-title">'+c.title+'</span><span class="course-date">'+c.date+'</span></div>';
+  }
+  document.getElementById("coursesList").innerHTML = html;
+}
+
+function applyLanguage(lang){
+  currentLang = lang;
+  renderStatic();
+  renderAboutExtras();
+  renderExperience();
+  renderSkills();
+  renderProjects();
+  renderCourses();
+  var btns = document.querySelectorAll(".lang-btn");
+  for (var i=0;i<btns.length;i++){
+    var active = btns[i].getAttribute("data-lang") === lang;
+    btns[i].classList.toggle("active", active);
+    btns[i].setAttribute("aria-pressed", active ? "true" : "false");
+  }
+}
+
+/* ============================= NAV / MENU ============================= */
+function setupNav(){
+  var toggle = document.getElementById("menuToggle");
+  var nav = document.getElementById("mainNav");
+  toggle.querySelector(".icon-menu").innerHTML = ICONS.menu;
+  toggle.querySelector(".icon-close").innerHTML = ICONS.close;
+  toggle.addEventListener("click", function(){
+    var isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    toggle.querySelector(".icon-menu").hidden = isOpen;
+    toggle.querySelector(".icon-close").hidden = !isOpen;
+  });
+  var links = nav.querySelectorAll("a");
+  for (var i=0;i<links.length;i++){
+    links[i].addEventListener("click", function(){
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded","false");
+      toggle.querySelector(".icon-menu").hidden = false;
+      toggle.querySelector(".icon-close").hidden = true;
+    });
+  }
+}
+
+function setupLangSwitch(){
+  var btns = document.querySelectorAll(".lang-btn");
+  for (var i=0;i<btns.length;i++){
+    btns[i].addEventListener("click", function(){
+      applyLanguage(this.getAttribute("data-lang"));
+    });
+  }
+}
+
+function setupReveal(){
+  var els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)){
+    for (var i=0;i<els.length;i++){ els[i].classList.add("visible"); }
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){ entry.target.classList.add("visible"); obs.unobserve(entry.target); }
+    });
+  }, { threshold:0.12, rootMargin:"0px 0px -60px 0px" });
+  for (var j=0;j<els.length;j++){ obs.observe(els[j]); }
+}
+
+function setupScrollSpy(){
+  var sections = document.querySelectorAll("main section[id]");
+  var navLinks = document.querySelectorAll(".nav-link");
+  if (!("IntersectionObserver" in window) || !sections.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var id = entry.target.id;
+        navLinks.forEach(function(link){
+          link.classList.toggle("active", link.getAttribute("href") === "#"+id);
+        });
+      }
+    });
+  }, { threshold:0.5, rootMargin:"-90px 0px -50% 0px" });
+  sections.forEach(function(s){ obs.observe(s); });
+}
+
+/* ============================= INIT ============================= */
+document.addEventListener("DOMContentLoaded", function(){
+  applyLanguage("tr");
+  setupNav();
+  setupLangSwitch();
+  setupReveal();
+  setupScrollSpy();
+  var yearEl = document.getElementById("footerYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+
+})();
+</script>
+</body>
+</html>
