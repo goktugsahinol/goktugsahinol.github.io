@@ -177,6 +177,7 @@ a:focus-visible,button:focus-visible,.lang-btn:focus-visible{outline:2px solid v
 .timeline-desc{color:var(--ink-soft);line-height:1.75;font-size:.97rem;}
 
 /* ============================= EDUCATION ============================= */
+.edu-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center;}
 .edu-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 2.2rem;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;}
 .edu-icon{width:54px;height:54px;border-radius:15px;background:var(--copper-tint);color:var(--copper-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .edu-icon svg{width:26px;height:26px;}
@@ -184,6 +185,9 @@ a:focus-visible,button:focus-visible,.lang-btn:focus-visible{outline:2px solid v
 .edu-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;color:var(--muted);font-family:var(--font-mono);font-size:.85rem;margin:.45rem 0 .9rem;}
 .edu-degree{color:var(--copper-deep);font-weight:600;margin-bottom:.6rem;}
 .edu-desc{color:var(--ink-soft);line-height:1.75;}
+.edu-photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--line);aspect-ratio:4/5;}
+.edu-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+@media (max-width:900px){.edu-layout{grid-template-columns:1fr;}.edu-photo{aspect-ratio:16/9;}}
 @media (max-width:600px){.edu-card{grid-template-columns:1fr;}}
 
 /* ============================= SKILLS ============================= */
@@ -336,20 +340,25 @@ a:focus-visible,button:focus-visible,.lang-btn:focus-visible{outline:2px solid v
     </div>
   </section>
 
-  <!-- EDUCATION -->
+ <!-- EDUCATION -->
   <section class="section" id="education">
     <div class="container">
       <div class="section-head reveal">
         <div class="net-marker"><svg viewBox="0 0 72 24" fill="none"><line x1="0" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/><line x1="16" y1="5" x2="16" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="5" x2="21" y2="19" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="66" y1="12" x2="72" y2="12" stroke="currentColor" stroke-width="2"/></svg><span class="net-tag" data-i18n="education.network"></span></div>
         <h2 class="section-title" data-i18n="education.title"></h2>
       </div>
-      <div class="edu-card reveal">
-        <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5z"/><path d="M6 11.7v4.3c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.3"/><path d="M22 9.5V16"/></svg></div>
-        <div>
-          <div class="edu-school" data-i18n="education.school"></div>
-          <div class="edu-meta"><span>2021 — 2026</span><span>Manisa</span></div>
-          <div class="edu-degree" data-i18n="education.degree"></div>
-          <p class="edu-desc" data-i18n="education.desc"></p>
+      <div class="edu-layout reveal">
+        <div class="edu-card">
+          <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5z"/><path d="M6 11.7v4.3c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.3"/><path d="M22 9.5V16"/></svg></div>
+          <div>
+            <div class="edu-school" data-i18n="education.school"></div>
+            <div class="edu-meta"><span>2021 — 2026</span><span>Manisa</span></div>
+            <div class="edu-degree" data-i18n="education.degree"></div>
+            <p class="edu-desc" data-i18n="education.desc"></p>
+          </div>
+        </div>
+        <div class="edu-photo">
+          <img src="mezun.jpg" alt="Mezuniyet Fotoğrafı">
         </div>
       </div>
     </div>
